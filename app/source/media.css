@@ -1,0 +1,19 @@
+/* === Media Queries как в Bootstrap === */
+
+/* Средние устройства (планшеты, ширина >= 768px) */
+@media (min-width: 501px) {
+    .card-orientation {
+        aspect-ratio: 16/10;
+    }
+}
+
+@media (max-width: 500px) {
+    .card-orientation {
+        aspect-ratio: 1/1;
+    }
+}
+
+.cursor-secondary:hover {
+    cursor: pointer;
+    background-color: var(--bs-secondary-bg)!important;
+}
