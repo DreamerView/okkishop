@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { usePathname, useSearchParams } from 'next/navigation';
 import Image from "next/image";
 import { signOut } from 'next-auth/react';
@@ -8,6 +8,7 @@ const Header = () => {
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const [sessionStatus, setSessionStatus] = useState(null);
+
     useEffect(() => {
         const checkSession = async () => {
             try {
@@ -28,6 +29,7 @@ const Header = () => {
 
         checkSession();
     }, [pathname, searchParams]);
+
     console.log(sessionStatus);
     return (
         <header className="row bg-body py-3 position-sticky top-0" style={{ zIndex: 1 }}>
@@ -41,10 +43,7 @@ const Header = () => {
             </div>
             <div className="col-lg-8 col-sm-6 col-12 order-sm-2 order-3 mt-sm-0 mt-3">
                 <div className="input-group bg-body-secondary rounded-5">
-                    <span
-                        className="input-group-text bg-transparent border-0"
-                        id="basic-addon1"
-                    >
+                    <span className="input-group-text bg-transparent border-0" id="basic-addon1">
                         <i className="bi bi-search fs-5"></i>
                     </span>
                     <input
@@ -74,9 +73,9 @@ const Header = () => {
                             <Image src={sessionStatus['user']['image']} alt="User Image" width={32} height={32} className="rounded-circle" style={{ objectFit: "cover", aspectRatio: "1/1" }} />
                         </button>
                         <ul className="dropdown-menu mt-2">
-                            <li><a className="dropdown-item" style={{fontSize:14}} href="#"><i className="bi bi-heart me-2"></i>Избранное</a></li>
-                            <li><a className="dropdown-item" style={{fontSize:14}} href="#"><i className="bi bi-journal-text me-2"></i>Мои заказы</a></li>
-                            <li><button onClick={()=>signOut()} style={{fontSize:14}} className="dropdown-item"><i className="bi bi-box-arrow-right me-2"></i>Выйти</button></li>
+                            <li><a className="dropdown-item" style={{ fontSize: 14 }} href="#"><i className="bi bi-heart me-2"></i>Избранное</a></li>
+                            <li><a className="dropdown-item" style={{ fontSize: 14 }} href="#"><i className="bi bi-journal-text me-2"></i>Мои заказы</a></li>
+                            <li><button onClick={() => signOut()} style={{ fontSize: 14 }} className="dropdown-item"><i className="bi bi-box-arrow-right me-2"></i>Выйти</button></li>
                         </ul>
                     </div>
                 )}
@@ -88,4 +87,12 @@ const Header = () => {
     )
 };
 
-export default Header;
+const SuspenseWrapper = () => {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <Header />
+        </Suspense>
+    );
+}
+
+export default SuspenseWrapper;
