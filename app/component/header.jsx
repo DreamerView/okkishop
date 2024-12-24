@@ -90,7 +90,7 @@ const Header = () => {
 const SuspenseWrapper = () => {
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            <Header />
+            <Header/>
         </Suspense>
     );
 }
