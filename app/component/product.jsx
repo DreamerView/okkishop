@@ -175,14 +175,14 @@ const Product = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="col-lg-6 col-12 my-lg-5 my-4 p-4">
+                    <div className="col-lg-6 col-12 my-lg-5 my-4 px-lg-5 py-lg-3 p-0">
                         <h5>Отзывы</h5>
                         <div className="mt-4">
                             {json.map((j,index)=><div key={index} className="row border-bottom py-3">
                                 <div className="col-2">
                                     <Image alt="" className="rounded-circle" style={{width:"100%",height:"auto",objectFit:"cover",aspectRatio:"1/1"}} src="/placeholder.jpg" width={150} height={150} />
                                 </div>
-                                <div className="col-9">
+                                <div className="col-9 d-flex flex-column justify-content-center">
                                     <h6>Aaron Stone</h6>
                                     <p className="m-0 p-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                                 </div>
