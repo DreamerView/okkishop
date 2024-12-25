@@ -11,7 +11,6 @@ export const handler = NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async session({ session, token }) {
-      console.log("Session callback:", session); // Проверим что приходит в сессии
       return session;
     },
   },

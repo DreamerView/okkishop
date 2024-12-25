@@ -16,7 +16,6 @@ const Header = () => {
                 if (res.ok) {
                     const data = await res.json();
                     const check = Object.keys(data).length === 0 ? false : data;
-                    console.log(data);
                     setSessionStatus(check);
                 } else {
                     setSessionStatus(null);
@@ -30,7 +29,6 @@ const Header = () => {
         checkSession();
     }, [pathname, searchParams]);
 
-    console.log(sessionStatus);
     return (
         <header className="row bg-body py-3 position-sticky top-0" style={{ zIndex: 1 }}>
             <div className="col-lg-2 col-sm-3 col-6 d-flex gap-4 order-1">

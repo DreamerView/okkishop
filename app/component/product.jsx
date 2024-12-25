@@ -47,6 +47,43 @@ const Product = () => {
             element.removeEventListener("scroll", handleScroll);
         };
     }, []);
+    const json = [
+        {
+          "id": 1,
+          "title": "Explore the World",
+          "description": "Discover amazing places around the globe.",
+          "image_url": "https://example.com/images/explore.jpg",
+          "link": "https://example.com/explore"
+        },
+        {
+          "id": 2,
+          "title": "Adventure Awaits",
+          "description": "Embark on thrilling adventures and experiences.",
+          "image_url": "https://example.com/images/adventure.jpg",
+          "link": "https://example.com/adventure"
+        },
+        {
+          "id": 3,
+          "title": "Relax and Unwind",
+          "description": "Find the perfect spots to relax and recharge.",
+          "image_url": "https://example.com/images/relax.jpg",
+          "link": "https://example.com/relax"
+        },
+        {
+          "id": 4,
+          "title": "Taste the Best",
+          "description": "Discover delicious cuisines from around the world.",
+          "image_url": "https://example.com/images/food.jpg",
+          "link": "https://example.com/food"
+        },
+        {
+          "id": 5,
+          "title": "Cultural Journeys",
+          "description": "Immerse yourself in different cultures and traditions.",
+          "image_url": "https://example.com/images/culture.jpg",
+          "link": "https://example.com/culture"
+        }
+      ];      
     return (
         <>
             {/* <div className="position-fixed w-100 bg-danger" style={{ height: "100px", zIndex: 999 }}>
@@ -91,7 +128,7 @@ const Product = () => {
                             <h5 className="mb-4">Подробнее</h5>
                             <p className="text-secondary"><i className="bi bi-person-bounding-box me-3"></i>ИП "Okki.kz"</p>
                             <p className="text-secondary"><i className="bi bi-telephone me-3"></i>+7 (747) 777 44 55</p>
-                            <p className="text-secondary"><i className="bi bi-whatsapp me-3"></i>WhatsApp</p>
+                            {/* <p className="text-secondary"><i className="bi bi-whatsapp me-3"></i>WhatsApp</p> */}
                             <div className="d-flex gap-3 fs-3 mt-4 text-warning">
                                 <i className="bi bi-star-fill"></i>
                                 <i className="bi bi-star-fill"></i>
@@ -101,9 +138,9 @@ const Product = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 mt-lg-5 mt-4 order-lg-4 order-3 bg-body-secondary rounded-4 position-relative">
+                    <div className="col-12 mt-lg-5 mt-4 order-lg-4 order-3 position-relative">
                         <button disabled={!showLeftArrow} style={{ top: "60px", visibility: showLeftArrow ? "visible" : "hidden" }} onClick={() => horizontalScroll('left')} className="btn btn-dark px-2 py-1 fs-4 rounded-circle position-absolute"><i className="bi bi-arrow-left"></i></button>
-                        <div ref={scrollableRef} className="hide-scrollbar overflow-x-auto d-flex gap-lg-4 gap-3 py-3 mx-auto scrollable" style={{ width: "calc(100% - 32px)" }}>
+                        <div ref={scrollableRef} className="hide-scrollbar overflow-x-auto d-flex gap-lg-4 gap-3 p-4 mx-auto scrollable bg-body-secondary rounded-4" style={{ width: "calc(100% - 32px)" }}>
                             <div>
                                 <Image data-bs-toggle="modal" data-bs-target="#exampleModal" className="rounded-4" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
                             </div>
@@ -127,6 +164,31 @@ const Product = () => {
                             </div>
                         </div>
                         <button disabled={!showRightArrow} style={{ top: "60px", right: "16px", visibility: showRightArrow ? "visible" : "hidden" }} onClick={() => horizontalScroll('right')} className="btn btn-dark px-2 py-1 fs-4 rounded-circle position-absolute"><i className="bi bi-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div className="row mx-auto" style={{ width: "calc(100% - 32px)" }}>
+                    <div className="col-lg-6 col-12 my-lg-5 my-4 p-0">
+                        <div className="bg-body-secondary p-4 rounded-4">
+                            <h5>Описание</h5>
+                            <p className="mb-0 mt-4">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="col-lg-6 col-12 my-lg-5 my-4 p-4">
+                        <h5>Отзывы</h5>
+                        <div className="mt-4">
+                            {json.map((j,index)=><div key={index} className="row border-bottom py-3">
+                                <div className="col-2">
+                                    <Image alt="" className="rounded-circle" style={{width:"100%",height:"auto",objectFit:"cover",aspectRatio:"1/1"}} src="/placeholder.jpg" width={150} height={150} />
+                                </div>
+                                <div className="col-9">
+                                    <h6>Aaron Stone</h6>
+                                    <p class="m-0 p-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                                </div>
+                                <div className="col-1"></div>
+                            </div>)}
+                        </div>
                     </div>
                 </div>
             </section>
