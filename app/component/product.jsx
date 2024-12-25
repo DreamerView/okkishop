@@ -175,7 +175,7 @@ const Product = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="col-lg-6 col-12 my-lg-5 my-4 px-lg-5 py-lg-3 p-0">
+                    <div className="col-lg-6 col-12 my-lg-5 my-4 px-lg-5 py-lg-4 p-0">
                         <h5>Отзывы</h5>
                         <div className="mt-4">
                             {json.map((j,index)=><div key={index} className="row border-bottom py-3">
