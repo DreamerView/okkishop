@@ -5,6 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Header from "./component/header";
 import Bootstrap from './source/bootstrap';
 import AuthModal from "./component/authModal";
+import ShowImageFull from "./component/showImageFull";
 
 export const metadata = {
   title: "Okki Shop",
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <Bootstrap />
         <body>
+          <ShowImageFull />
           <AuthModal />
           <div className="container" style={{ maxWidth: '1100px', width: '100%' }}>
             <Header />

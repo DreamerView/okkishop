@@ -42,18 +42,29 @@ const Header = () => {
                 </button>
             </div>
             <div className="col-lg-8 col-sm-6 col-12 order-sm-2 order-3 mt-sm-0 mt-3">
-                <div className="input-group bg-body-secondary rounded-5">
-                    <span className="input-group-text bg-transparent border-0" id="basic-addon1">
-                        <i className="bi bi-search fs-5"></i>
-                    </span>
-                    <input
-                        type="text"
-                        className="form-control bg-transparent rounded-4 border-0"
-                        placeholder="Search..."
-                        aria-label="Search..."
-                        aria-describedby="basic-addon1"
-                        style={{ boxShadow: "none" }}
-                    />
+                <div className="dropdown">
+                    <div className="input-group bg-body-secondary rounded-5" data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                        <span className="input-group-text bg-transparent border-0" id="basic-addon1">
+                            <i className="bi bi-search fs-5"></i>
+                        </span>
+                        <input
+                            type="text"
+                            className="form-control bg-transparent rounded-4 border-0"
+                            placeholder="Search..."
+                            aria-label="Search..."
+                            aria-describedby="basic-addon1"
+                            style={{ boxShadow: "none" }}
+                        />
+                    </div>
+                    <div className="dropdown-menu w-100 mt-2 rounded-4">
+                        <div className="dropdown-items">
+                            <a className="dropdown-item" href="#">Элемент 1</a>
+                            <a className="dropdown-item" href="#">Элемент 2</a>
+                            <a className="dropdown-item" href="#">Элемент 3</a>
+                            <a className="dropdown-item" href="#">Элемент 4</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="col-lg-2 col-sm-3 col-6 d-flex gap-4 justify-content-end order-sm-3 order-2">
@@ -90,7 +101,7 @@ const Header = () => {
 const SuspenseWrapper = () => {
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            <Header/>
+            <Header />
         </Suspense>
     );
 }

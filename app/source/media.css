@@ -15,5 +15,17 @@
 
 .cursor-secondary:hover {
     cursor: pointer;
-    background-color: var(--bs-secondary-bg)!important;
+    background-color: var(--bs-secondary-bg) !important;
+}
+
+.hide-scrollbar {
+    scrollbar-width: none;
+    /* Для Firefox */
+    -ms-overflow-style: none;
+    /* Для IE и Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Для Chrome, Safari и Opera */
 }
