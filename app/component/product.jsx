@@ -138,9 +138,9 @@ const Product = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 mt-lg-5 mt-4 order-lg-4 order-3 position-relative bg-body-secondary rounded-4">
+                    <div className="col-12 mt-lg-5 mt-4 order-lg-4 order-3 position-relative bg-body-secondary rounded-4 p-3">
                         <button disabled={!showLeftArrow} style={{ top: "60px", visibility: showLeftArrow ? "visible" : "hidden" }} onClick={() => horizontalScroll('left')} className="btn btn-dark px-2 py-1 fs-4 rounded-circle position-absolute"><i className="bi bi-arrow-left"></i></button>
-                        <div ref={scrollableRef} className="hide-scrollbar overflow-x-auto d-flex gap-lg-4 gap-3 p-4 mx-auto scrollable" style={{ width: "calc(100% - 32px)" }}>
+                        <div ref={scrollableRef} className="hide-scrollbar overflow-x-auto d-flex gap-lg-4 gap-3 mx-auto scrollable">
                             <div>
                                 <Image data-bs-toggle="modal" data-bs-target="#exampleModal" className="rounded-4" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
                             </div>
