@@ -138,9 +138,9 @@ const Product = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 mt-lg-5 mt-4 order-lg-4 order-3 position-relative">
+                    <div className="col-12 mt-lg-5 mt-4 order-lg-4 order-3 position-relative bg-body-secondary rounded-4">
                         <button disabled={!showLeftArrow} style={{ top: "60px", visibility: showLeftArrow ? "visible" : "hidden" }} onClick={() => horizontalScroll('left')} className="btn btn-dark px-2 py-1 fs-4 rounded-circle position-absolute"><i className="bi bi-arrow-left"></i></button>
-                        <div ref={scrollableRef} className="hide-scrollbar overflow-x-auto d-flex gap-lg-4 gap-3 p-4 mx-auto scrollable bg-body-secondary rounded-4" style={{ width: "calc(100% - 32px)" }}>
+                        <div ref={scrollableRef} className="hide-scrollbar overflow-x-auto d-flex gap-lg-4 gap-3 p-4 mx-auto scrollable" style={{ width: "calc(100% - 32px)" }}>
                             <div>
                                 <Image data-bs-toggle="modal" data-bs-target="#exampleModal" className="rounded-4" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
                             </div>
@@ -166,7 +166,7 @@ const Product = () => {
                         <button disabled={!showRightArrow} style={{ top: "60px", right: "16px", visibility: showRightArrow ? "visible" : "hidden" }} onClick={() => horizontalScroll('right')} className="btn btn-dark px-2 py-1 fs-4 rounded-circle position-absolute"><i className="bi bi-arrow-right"></i></button>
                     </div>
                 </div>
-                <div className="row mx-auto" style={{ width: "calc(100% - 32px)" }}>
+                <div className="row mx-auto">
                     <div className="col-lg-6 col-12 my-lg-5 my-4 p-0">
                         <div className="bg-body-secondary p-4 rounded-4">
                             <h5>Описание</h5>
@@ -184,7 +184,7 @@ const Product = () => {
                                 </div>
                                 <div className="col-9">
                                     <h6>Aaron Stone</h6>
-                                    <p class="m-0 p-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                                    <p className="m-0 p-0">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                                 </div>
                                 <div className="col-1"></div>
                             </div>)}
