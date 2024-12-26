@@ -68,7 +68,7 @@ const Header = () => {
             <div className="col-lg-2 col-sm-3 col-6 d-flex gap-4 justify-content-end order-sm-3 order-2">
                 {sessionStatus === null ? (
                     <button className="btn">
-                        <div className="spinner-grow text-secondary opacity-25" role="status">
+                        <div style={{width:32,height:32}} className="spinner-grow text-secondary opacity-25" role="status">
                             <span className="visually-hidden">Loading...</span>
                         </div>
                     </button>

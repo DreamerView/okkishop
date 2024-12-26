@@ -7,7 +7,7 @@ const Card = () => {
             <h3 className="mb-3">Popular</h3>
             <Link href="/product" prefetch={false} className="btn text-start col-lg-3 col-sm-4 col-6 p-3 rounded-4 cursor-secondary">
                 <div>
-                    <Image width="300" height="200" style={{ width: "100%", height: "auto", objectFit: "cover" }}
+                    <Image loading = 'lazy' width="190" height="190" style={{ width: "100%", height: "auto", objectFit: "cover" }}
                         className="bg-body-tertiary w-100 rounded-4 card-orientation"
                         src="/placeholder.jpg"
                         alt=""

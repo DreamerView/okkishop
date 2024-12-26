@@ -1,6 +1,15 @@
 "use client";
 import { signIn } from 'next-auth/react';
+import {useState} from 'react';
 const AuthModal = () => {
+    const [provider,setProvider] = useState({disable:false,provider:null});
+    const clickAuth = (props) => {
+        if(provider['disable']===false) {
+            console.log("clicked");
+            setProvider({disable:true,provider:props});
+            signIn(props);
+        }
+    };
     return (
         <div
             className="modal fade"
@@ -25,8 +34,10 @@ const AuthModal = () => {
                     <div className="modal-body d-flex flex-column gap-3">
                         <h4>В курсе происходящего</h4>
                         <p>Присоединяйтесь сегодня.</p>
-                        <button className="btn bg-body-secondary w-100 py-2" onClick={() => signIn('google')}>
-                            <i className="bi bi-google me-3"></i>Войти с помощью Google
+                        <button className="btn bg-body-secondary w-100 py-2" onClick={() => clickAuth('google')}>
+                            {provider['provider']==="google"?
+                                (<><span className="spinner-border spinner-border-sm me-3" aria-hidden="true"></span><span role="status">Loading</span></>):
+                                (<><i className="bi bi-google me-3"></i>Войти с помощью Google</>)}
                         </button>
                         <button className="btn bg-body-secondary w-100 py-2">
                             <i className="bi bi-facebook me-3"></i>Войти с помощью Facebook
