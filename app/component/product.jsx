@@ -90,7 +90,7 @@ const Product = () => {
             </div> */}
             <section className="my-lg-5 my-4">
                 <div className="row">
-                    <div className="col-lg-3 col-md-4 col-sm-5 col-12 d-flex flex-column align-items-center justify-content-center order-1">
+                    <div className="col-lg-3 col-md-4 col-sm-5 col-12 d-flex flex-column align-items-center justify-content-center order-1  placeholder-glow">
                         <Image
                             style={{
                                 width: "calc(100% - 32px)",
@@ -100,7 +100,7 @@ const Product = () => {
                             }}
                             width="219"
                             height="219"
-                            className="rounded-5"
+                            className="rounded-5 bg-body-secondary"
                             src="/placeholder.jpg"
                             alt=""
                             priority
@@ -142,25 +142,25 @@ const Product = () => {
                         <button disabled={!showLeftArrow} style={{ top: "60px", visibility: showLeftArrow ? "visible" : "hidden" }} onClick={() => horizontalScroll('left')} className="btn btn-dark px-2 py-1 fs-4 rounded-circle position-absolute"><i className="bi bi-arrow-left"></i></button>
                         <div ref={scrollableRef} className="hide-scrollbar overflow-x-auto d-flex gap-lg-4 gap-3 mx-auto scrollable">
                             <div>
-                                <Image priority data-bs-toggle="modal" data-bs-target="#exampleModal" className="rounded-4" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
+                                <Image priority data-bs-toggle="modal" data-bs-target="#exampleModal" className="rounded-4 bg-body" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
                             </div>
                             <div>
-                                <Image priority className="rounded-4" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
+                                <Image priority className="rounded-4 bg-body" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
                             </div>
                             <div>
-                                <Image priority className="rounded-4" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
+                                <Image priority className="rounded-4 bg-body" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
                             </div>
                             <div>
-                                <Image priority className="rounded-4" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
+                                <Image priority className="rounded-4 bg-body" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
                             </div>
                             <div>
-                                <Image priority className="rounded-4" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
+                                <Image priority className="rounded-4 bg-body" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
                             </div>
                             <div>
-                                <Image priority className="rounded-4" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
+                                <Image priority className="rounded-4 bg-body" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
                             </div>
                             <div>
-                                <Image priority className="rounded-4" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
+                                <Image priority className="rounded-4 bg-body" src="/placeholder.jpg" alt="" width="150" height="150" style={{ objectFit: "cover", cursor: "pointer" }} />
                             </div>
                         </div>
                         <button disabled={!showRightArrow} style={{ top: "60px", right: "16px", visibility: showRightArrow ? "visible" : "hidden" }} onClick={() => horizontalScroll('right')} className="btn btn-dark px-2 py-1 fs-4 rounded-circle position-absolute"><i className="bi bi-arrow-right"></i></button>
@@ -181,7 +181,7 @@ const Product = () => {
                             <div className="mt-4">
                                 {json.map((j,index)=><div key={index} className="row border-bottom py-3">
                                     <div className="col-sm-2 col-3">
-                                        <Image alt="" className="rounded-circle" style={{width:"100%",height:"auto",objectFit:"cover",aspectRatio:"1/1"}} src="/placeholder.jpg" width={150} height={150} />
+                                        <Image loading="lazy" alt="" className="rounded-circle bg-body-secondary" style={{width:"100%",height:"auto",objectFit:"cover",aspectRatio:"1/1"}} src="/placeholder.jpg" width={150} height={150} />
                                     </div>
                                     <div className="col-sm-10 col-9 d-flex flex-column justify-content-center">
                                         <h6>Aaron Stone</h6>

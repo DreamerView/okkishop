@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "./source/animation.css";
 import "./source/media.css";
+import "./source/loader.css";
 import Header from "./component/header";
 import Bootstrap from './source/bootstrap';
 import AuthModal from "./component/authModal";
@@ -20,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
       <html lang="en">
         <Bootstrap />
-        <body>
+        <body data-bs-theme="dark">
           <ShowImageFull />
           <AuthModal />
           <div className="container" style={{ maxWidth: '1100px', width: '100%' }}>

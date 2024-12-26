@@ -30,7 +30,7 @@ const Header = () => {
     }, [pathname, searchParams]);
 
     return (
-        <header className="row bg-body py-3 position-sticky top-0" style={{ zIndex: 1 }}>
+        <header className="row py-3 position-sticky top-0 header-transparent" style={{ zIndex: 1,backdropFilter: "saturate(180%) blur(5px)" }}>
             <div className="col-lg-2 col-sm-3 col-6 d-flex gap-4 order-1">
                 <button className="btn text-secondary border-0 fs-4" onClick={() => window.history.back()}>
                     <i className="bi bi-arrow-left-short"></i>
@@ -79,7 +79,7 @@ const Header = () => {
                 ) : (
                     <div className="dropdown">
                         <button className="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <Image src={sessionStatus['user']['image']} alt="User Image" width={32} height={32} className="rounded-circle" style={{ objectFit: "cover", aspectRatio: "1/1" }} />
+                            <Image priority src={sessionStatus['user']['image']} alt="User Image" width={32} height={32} className="rounded-circle" style={{ objectFit: "cover", aspectRatio: "1/1" }} />
                         </button>
                         <ul className="dropdown-menu mt-2">
                             <li><a className="dropdown-item" style={{ fontSize: 14 }} href="#"><i className="bi bi-heart me-2"></i>Избранное</a></li>
