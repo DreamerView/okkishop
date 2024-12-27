@@ -6,10 +6,6 @@ import "./source/loader.css";
 import dynamic from "next/dynamic";
 // import Header from "./component/header";
 import Bootstrap from './source/bootstrap';
-import AuthModal from "./component/authModal";
-import ShowImageFull from "./component/showImageFull";
-import InstallPromptPwa from "@/pwa/installPrompt";
-import Basket from "./component/basket";
 import ClientSideRender from "./client-side-render";
 
 export const metadata = {
@@ -26,13 +22,9 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <Bootstrap />
         <body data-bs-theme="light">
-          <Basket />
-          <ShowImageFull />
-          <AuthModal />
           <div className="container" style={{ maxWidth: '1100px', width: '100%' }}>
             {/* <Header /> */}
             <ClientSideRender />
-            <InstallPromptPwa />
             {children}
           </div>
         </body>
