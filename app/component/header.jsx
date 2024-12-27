@@ -1,4 +1,3 @@
-'use client';
 import { useEffect, useState, Suspense } from "react";
 import { usePathname, useSearchParams } from 'next/navigation';
 import Image from "next/image";
@@ -88,7 +87,7 @@ const Header = () => {
                         </ul>
                     </div>
                 )}
-                <button className="btn text-secondary border-0 fs-5">
+                <button className="btn text-secondary border-0 fs-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#basketForm" aria-controls="basketForm">
                     <i className="bi bi-basket"></i>
                 </button>
             </div>
@@ -96,12 +95,4 @@ const Header = () => {
     )
 };
 
-const SuspenseWrapper = () => {
-    return (
-        <Suspense fallback={<div>Loading...</div>}>
-            <Header />
-        </Suspense>
-    );
-}
-
-export default SuspenseWrapper;
+export default Header;

@@ -127,7 +127,7 @@ const Product = () => {
                         <div className="mx-auto" style={{ width: "calc(100% - 32px)" }}>
                             <h5 className="mb-4">Подробнее</h5>
                             <p className="text-secondary"><i className="bi bi-person-bounding-box me-3"></i>ИП "Okki.kz"</p>
-                            <p className="text-secondary"><i className="bi bi-telephone me-3"></i>+7 (747) 777 44 55</p>
+                            <p className="text-secondary"><i className="bi bi-bag-heart-fill me-3"></i>Shopping</p>
                             {/* <p className="text-secondary"><i className="bi bi-whatsapp me-3"></i>WhatsApp</p> */}
                             <div className="d-flex gap-3 fs-3 mt-4 text-warning">
                                 <i className="bi bi-star-fill"></i>
