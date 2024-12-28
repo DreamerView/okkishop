@@ -44,9 +44,8 @@ const InstallPrompPwa = () => {
 
     if (iOS() && !isStandalone) {
       // Уведомляем пользователей iOS
-      alert(
-        'Установка приложения на iOS:\n\n1. Нажмите на "Поделиться" (значок со стрелкой внизу экрана).\n2. Выберите "На экран Домой".\n3. Подтвердите действие.'
-      );
+      const modalPrompt = new bootstrap.Modal(document.getElementById('pwaPromptModal'))
+      modalPrompt.show()
     } else if (deferredPrompt) {
       // Уведомляем пользователей Android
       deferredPrompt.prompt();

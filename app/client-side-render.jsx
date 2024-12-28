@@ -10,6 +10,9 @@ const ShowImageFull = dynamic(()=>import("./component/showImageFull"),{
 const InstallPromptPwa = dynamic(()=>import("@/pwa/installPrompt"),{
     ssr:false
 });
+const ModalPromptPwa = dynamic(()=>import("@/pwa/modalPrompt"),{
+    ssr:false
+});
 const Basket = dynamic(()=>import("./component/basket"),{
     ssr:false
 });
@@ -22,6 +25,7 @@ const ClientSideRender = () => {
     return(
         <>
             <Basket />
+            <ModalPromptPwa />
             <ShowImageFull />
             <AuthModal />
             <Header />
