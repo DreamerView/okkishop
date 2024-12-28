@@ -72,7 +72,20 @@ const InstallPrompPwa = () => {
   }
 
   return (
-    <><div className="d-none d-lg-flex position-fixed row mx-auto bg-dark text-white p-3 rounded-4 shadow" style={{ maxWidth: 300, width: "calc(100% - 32px)", bottom: "32px", zIndex: 3, right: '32px' }}>
+    <>
+    <div className="row d-md-none bg-dark mx-1 p-3 rounded-4">
+      <div className="col-2 px-0">
+        <Image src="/android/android-launchericon-48-48.png" className="rounded-3" alt="" width={40} height={40} />
+      </div>
+      <div className="col-4 text-white ps-0">
+        <h6 className="m-0">Okki.kz</h6>
+        <p className="p-0 opacity-75 m-0 mt-1" style={{ fontSize: 11 }}>Shopping</p>
+      </div>
+      <div className="col-6  d-flex align-items-center justify-content-end px-0">
+        <button onClick={handleInstall} style={{ fontSize: 14 }} className="btn btn-primary">Установить</button>
+      </div>
+    </div>
+    <div className="d-none d-md-flex position-fixed row mx-auto bg-dark text-white p-3 rounded-4 shadow" style={{ maxWidth: 300, width: "calc(100% - 32px)", bottom: "32px", zIndex: 3, right: '32px' }}>
       <div className="col-2 px-0">
         <Image src="/android/android-launchericon-48-48.png" className="rounded-3" alt="" width={40} height={40} />
       </div>
