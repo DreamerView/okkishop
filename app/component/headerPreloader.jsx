@@ -2,8 +2,8 @@ const HeaderPreloader = () => {
     return (
         <header className="row py-3 position-sticky top-0 header-transparent" style={{ zIndex: 1, backdropFilter: "saturate(180%) blur(5px)" }}>
             <div className="col-lg-2 col-sm-3 col-6 d-flex gap-4 order-1 align-items-center">
-                <button className="btn bg-body-secondary border-0 fs-4 rounded-circle">
-                    <i className="bi bi-arrow-left-short opacity-0" />
+                <button className="btn border-0 bg-body-secondary fs-4 rounded-circle" >
+                    <i className="bi bi-arrow-left-short opacity-0 bg-body-secondary " />
                 </button>
 
                 <button className="btn text-secondary border-0 fs-4 bg-body-secondary rounded-circle">
@@ -11,8 +11,7 @@ const HeaderPreloader = () => {
                 </button>
             </div>
             <div className="col-lg-8 col-sm-6 col-12 order-sm-2 order-3 mt-sm-0 mt-3">
-                <div className="input-group bg-body-secondary rounded-5" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <div className="input-group bg-body-secondary rounded-5">
                     <span className="input-group-text bg-transparent border-0" id="basic-addon1">
                         <i className="bi bi-search fs-5 opacity-0"></i>
                     </span>

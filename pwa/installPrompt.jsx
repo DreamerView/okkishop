@@ -3,28 +3,28 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const InstallPrompPwa = () => {
-  const [canInstall, setCanInstall] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
 
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e) => {
+      e.preventDefault(); // Отключаем автоматический показ окна
+      setDeferredPrompt(e); // Сохраняем событие для дальнейшего использования
+    };
 
-  const handleInstall = async () => {
-    if (window.deferredPrompt) {
-      const promptEvent = window.deferredPrompt;
-      // Показываем диалог установки
-      promptEvent.prompt();
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
 
-      // Обрабатываем результат
-      const choiceResult = await promptEvent.userChoice;
-      if (choiceResult.outcome === "accepted") {
-        console.log("User accepted the installation");
-      } else {
-        console.log("User dismissed the installation");
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        setDeferredPrompt(null); // Очищаем сохранённое событие
       }
-
-      // Сбрасываем сохраненный prompt
-      window.deferredPrompt = null;
-      setCanInstall(false);
-    } else {
-      alert("Not supported");
     }
   };
 
@@ -38,7 +38,7 @@ const InstallPrompPwa = () => {
         <p className="p-0 opacity-75 m-0 mt-1" style={{ fontSize: 11 }}>Shopping</p>
       </div>
       <div className="col-5 d-flex align-items-center justify-content-end">
-        <button onClick={handleInstall} style={{ fontSize: 14 }} className="btn btn-primary">Установить</button>
+        <button onClick={handleInstallClick} style={{ fontSize: 14 }} className="btn btn-primary">Установить</button>
       </div>
     </div></>
   );

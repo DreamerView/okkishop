@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from 'next/navigation';
 import Image from "next/image";
 import { signOut } from 'next-auth/react';
+import Link from "next/link";
 
 const Header = () => {
     const pathname = usePathname();
@@ -34,9 +35,9 @@ const Header = () => {
                 <button className="btn text-secondary border-0 fs-4" onClick={() => window.history.back()}>
                     <i className="bi bi-arrow-left-short"></i>
                 </button>
-                <button className="btn text-secondary border-0 fs-4">
+                <Link href="/" className="btn text-secondary border-0 fs-4">
                     <i className="bi bi-list"></i>
-                </button>
+                </Link>
             </div>
             <div className="col-lg-8 col-sm-6 col-12 order-sm-2 order-3 mt-sm-0 mt-3">
                 <div className="dropdown">
