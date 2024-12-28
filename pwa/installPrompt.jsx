@@ -55,6 +55,10 @@ const InstallPrompPwa = () => {
     return null; // Если приложение уже установлено, скрываем кнопку
   }
 
+  useEffect(()=>{
+    alert('isIos:', isIos());
+  },[])
+
 
   return (
     <><div className="d-none d-lg-flex position-fixed row mx-auto bg-dark text-white p-3 rounded-4 shadow" style={{ maxWidth: 300, width: "calc(100% - 32px)", bottom: "32px", zIndex: 3, right: '32px' }}>
