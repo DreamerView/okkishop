@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import * as bootstrap from 'bootstrap';
 
 const InstallPrompPwa = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -60,6 +61,11 @@ const InstallPrompPwa = () => {
       alert('Установка приложения не поддерживается на вашем устройстве.');
     }
   };
+
+  // useEffect(()=>{
+  //     const modalPrompt = new bootstrap.Modal(document.getElementById('pwaPromptModal'))
+  //     modalPrompt.show()
+  // },[])
 
   if (isStandalone) {
     return null; // Если приложение уже установлено, скрываем кнопку
