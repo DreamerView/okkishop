@@ -4,22 +4,23 @@ import Image from "next/image";
 
 const InstallPrompPwa = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
-  const [isInstalled, setIsInstalled] = useState(false);
+  const [isStandalone, setIsStandalone] = useState(false);
 
   useEffect(() => {
     // Проверяем, установлено ли приложение
-    const checkIfInstalled = () => {
-      const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-      setIsInstalled(isStandalone);
+    const checkStandaloneMode = () => {
+      const isInStandalone =
+        window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+      setIsStandalone(isInStandalone);
     };
 
-    // Слушатель события "beforeinstallprompt"
+    // Слушаем событие beforeinstallprompt
     const handleBeforeInstallPrompt = (e) => {
       e.preventDefault(); // Отключаем автоматическое поведение
       setDeferredPrompt(e); // Сохраняем событие
     };
 
-    checkIfInstalled();
+    checkStandaloneMode();
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
 
     return () => {
@@ -27,18 +28,31 @@ const InstallPrompPwa = () => {
     };
   }, []);
 
-  const handleInstallClick = async () => {
-    if (deferredPrompt) {
+  const handleInstall = async () => {
+    const isIos = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isIos && !isStandalone) {
+      // Уведомляем пользователей iOS через alert
+      alert(
+        'Чтобы установить приложение на iOS:\n\n1. Нажмите на "Поделиться" (иконка со стрелкой внизу экрана).\n2. Выберите "На экран Домой".'
+      );
+    } else if (deferredPrompt) {
+      // Уведомляем пользователей Android
       deferredPrompt.prompt();
       const { outcome } = await deferredPrompt.userChoice;
       if (outcome === 'accepted') {
-        setDeferredPrompt(null); // Очищаем сохранённое событие
+        alert('Приложение установлено!');
+        setDeferredPrompt(null); // Сбрасываем сохранённое событие
+      } else {
+        alert('Установка отменена.');
       }
+    } else {
+      alert('Установка приложения не поддерживается на вашем устройстве.');
     }
   };
 
-  if (isInstalled) {
-    return(<></>); // Если приложение установлено, не отображаем кнопку
+  if (isStandalone) {
+    return (<></>); // Если приложение уже установлено, скрываем кнопку
   }
 
   return (
@@ -51,7 +65,7 @@ const InstallPrompPwa = () => {
         <p className="p-0 opacity-75 m-0 mt-1" style={{ fontSize: 11 }}>Shopping</p>
       </div>
       <div className="col-5 d-flex align-items-center justify-content-end">
-        <button onClick={handleInstallClick} style={{ fontSize: 14 }} className="btn btn-primary">Установить</button>
+        <button onClick={handleInstall} style={{ fontSize: 14 }} className="btn btn-primary">Установить</button>
       </div>
     </div></>
   );
