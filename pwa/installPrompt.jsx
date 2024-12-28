@@ -55,9 +55,9 @@ const InstallPrompPwa = () => {
     return null; // Если приложение уже установлено, скрываем кнопку
   }
 
-  useEffect(()=>{
-    alert('isIos:', isIos());
-  },[])
+  useEffect(() => {
+    alert(`isIos: ${isIos()}`);
+  }, []);
 
 
   return (
