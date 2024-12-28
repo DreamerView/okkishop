@@ -4,13 +4,22 @@ import Image from "next/image";
 
 const InstallPrompPwa = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [isInstalled, setIsInstalled] = useState(false);
 
   useEffect(() => {
-    const handleBeforeInstallPrompt = (e) => {
-      e.preventDefault(); // Отключаем автоматический показ окна
-      setDeferredPrompt(e); // Сохраняем событие для дальнейшего использования
+    // Проверяем, установлено ли приложение
+    const checkIfInstalled = () => {
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+      setIsInstalled(isStandalone);
     };
 
+    // Слушатель события "beforeinstallprompt"
+    const handleBeforeInstallPrompt = (e) => {
+      e.preventDefault(); // Отключаем автоматическое поведение
+      setDeferredPrompt(e); // Сохраняем событие
+    };
+
+    checkIfInstalled();
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
 
     return () => {
@@ -27,6 +36,10 @@ const InstallPrompPwa = () => {
       }
     }
   };
+
+  if (isInstalled) {
+    return(<></>); // Если приложение установлено, не отображаем кнопку
+  }
 
   return (
     <><div className="d-none d-lg-flex position-fixed row mx-auto bg-dark text-white p-3 rounded-4 shadow" style={{ maxWidth: 300, width: "calc(100% - 32px)", bottom: "32px", zIndex: 3, right: '32px' }}>
