@@ -29,9 +29,20 @@ const InstallPrompPwa = () => {
   }, []);
 
   const handleInstall = async () => {
-    const isIos = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    function iOS() {
+      return [
+        'iPad Simulator',
+        'iPhone Simulator',
+        'iPod Simulator',
+        'iPad',
+        'iPhone',
+        'iPod'
+      ].includes(navigator.platform)
+      // iPad on iOS 13 detection
+      || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+    }
 
-    if (isIos && !isStandalone) {
+    if (iOS() && !isStandalone) {
       // Уведомляем пользователей iOS
       alert(
         'Установка приложения на iOS:\n\n1. Нажмите на "Поделиться" (значок со стрелкой внизу экрана).\n2. Выберите "На экран Домой".\n3. Подтвердите действие.'
@@ -54,23 +65,6 @@ const InstallPrompPwa = () => {
   if (isStandalone) {
     return null; // Если приложение уже установлено, скрываем кнопку
   }
-
-  useEffect(() => {
-    function iOS() {
-      return [
-        'iPad Simulator',
-        'iPhone Simulator',
-        'iPod Simulator',
-        'iPad',
-        'iPhone',
-        'iPod'
-      ].includes(navigator.platform)
-      // iPad on iOS 13 detection
-      || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
-    }
-    if(window) alert(`isIos: ${iOS()}`);
-  }, []);
-
 
   return (
     <><div className="d-none d-lg-flex position-fixed row mx-auto bg-dark text-white p-3 rounded-4 shadow" style={{ maxWidth: 300, width: "calc(100% - 32px)", bottom: "32px", zIndex: 3, right: '32px' }}>
