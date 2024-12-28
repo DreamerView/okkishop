@@ -9,8 +9,8 @@ const PWAModalPrompt = () => {
                     </div>
                     <div className="modal-body">
                         <ol>
-                            <li>Нажмите на "Поделиться" (значок со стрелкой внизу экрана).</li>
-                            <li>Выберите "На экран Домой".</li>
+                            <li>Нажмите на <span className="badge bg-body-secondary text-primary fw-bold"><i className="bi bi-box-arrow-up"></i></span> <b>Поделиться</b>.</li>
+                            <li>Выберите <b>На экран "Домой" <span className="badge text-body fw-bold"><i className="bi bi-plus-square"></i></span></b>.</li>
                             <li>Подтвердите действие.</li>
                         </ol>
                     </div>
