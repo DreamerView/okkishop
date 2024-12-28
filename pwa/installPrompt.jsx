@@ -32,9 +32,9 @@ const InstallPrompPwa = () => {
     const isIos = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     if (isIos && !isStandalone) {
-      // Уведомляем пользователей iOS через alert
+      // Уведомляем пользователей iOS
       alert(
-        'Чтобы установить приложение на iOS:\n\n1. Нажмите на "Поделиться" (иконка со стрелкой внизу экрана).\n2. Выберите "На экран Домой".'
+        'Установка приложения на iOS:\n\n1. Нажмите на "Поделиться" (значок со стрелкой внизу экрана).\n2. Выберите "На экран Домой".\n3. Подтвердите действие.'
       );
     } else if (deferredPrompt) {
       // Уведомляем пользователей Android
@@ -52,8 +52,9 @@ const InstallPrompPwa = () => {
   };
 
   if (isStandalone) {
-    return (<></>); // Если приложение уже установлено, скрываем кнопку
+    return null; // Если приложение уже установлено, скрываем кнопку
   }
+
 
   return (
     <><div className="d-none d-lg-flex position-fixed row mx-auto bg-dark text-white p-3 rounded-4 shadow" style={{ maxWidth: 300, width: "calc(100% - 32px)", bottom: "32px", zIndex: 3, right: '32px' }}>
