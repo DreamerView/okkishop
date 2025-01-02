@@ -30,7 +30,7 @@ const Header = () => {
     }, [pathname, searchParams]);
 
     return (
-        <header className="row py-3 position-sticky top-0 header-transparent" style={{ zIndex: 1,backdropFilter: "saturate(180%) blur(5px)" }}>
+        <header className="row py-md-2 py-3 my-2 position-sticky top-0 header-transparent" style={{ zIndex: 1,backdropFilter: "saturate(180%) blur(5px)" }}>
             <div className="col-lg-2 col-sm-3 col-6 d-flex gap-4 order-1">
                 <button className="btn text-secondary border-0 fs-4" onClick={() => window.history.back()}>
                     <i className="bi bi-arrow-left-short"></i>
@@ -39,7 +39,7 @@ const Header = () => {
                     <i className="bi bi-list"></i>
                 </Link>
             </div>
-            <div className="col-lg-8 col-sm-6 col-12 order-sm-2 order-3 mt-sm-0 mt-3">
+            <div className="col-lg-8 col-sm-6 col-12 order-sm-2 order-3 mt-sm-0 mt-2">
                 <div className="dropdown">
                     <div className="input-group bg-body-secondary rounded-5" data-bs-toggle="dropdown" 
                             aria-expanded="false">

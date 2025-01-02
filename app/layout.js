@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 // import Header from "./component/header";
 import Bootstrap from './source/bootstrap';
 import ClientSideRender from "./client-side-render";
+import ClientSideRenderGlobal from "./client-side-render-global";
 
 export const metadata = {
   title: "Okki Shop",
@@ -21,9 +22,9 @@ export default function RootLayout({ children }) {
   return (
       <html lang="en">
         <Bootstrap />
-        <body data-bs-theme="light">
+        <body>
+          <ClientSideRenderGlobal />
           <div className="container" style={{ maxWidth: '1100px', width: '100%' }}>
-            {/* <Header /> */}
             <ClientSideRender />
             {children}
           </div>
