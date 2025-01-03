@@ -34,7 +34,7 @@ const ShareButton = () => {
       className="btn btn-outline-secondary py-2 border-0 d-flex align-items-center gap-2"
     >
       <i className="bi bi-share-fill"></i>
-      Поделиться
+      <span className="d-none d-lg-block">Поделиться</span>
     </button>
   );
 };
