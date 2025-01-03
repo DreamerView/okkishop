@@ -21,7 +21,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
       <html lang="en">
-        <Bootstrap />
+        {/* <Bootstrap /> */}
         <body>
           <ClientSideRenderGlobal />
           <div className="container" style={{ maxWidth: '1100px', width: '100%' }}>
