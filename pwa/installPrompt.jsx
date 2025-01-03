@@ -18,6 +18,7 @@ const InstallPrompPwa = () => {
     // Слушаем событие beforeinstallprompt
     const handleBeforeInstallPrompt = (e) => {
       e.preventDefault(); // Отключаем автоматическое поведение
+      console.log(e);
       setDeferredPrompt(e); // Сохраняем событие
     };
 
@@ -26,6 +27,18 @@ const InstallPrompPwa = () => {
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleAppInstalled = () => {
+      console.log("PWA успешно установлено");
+    };
+  
+    window.addEventListener("appinstalled", handleAppInstalled);
+  
+    return () => {
+      window.removeEventListener("appinstalled", handleAppInstalled);
     };
   }, []);
 

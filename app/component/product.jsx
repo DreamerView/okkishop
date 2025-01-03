@@ -1,6 +1,11 @@
 "use client";
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+const ShareButton = dynamic(() => import("../buttons/share"), {
+    ssr: false,
+});
+// import ShareButton from "../buttons/share";
 
 const Product = () => {
     const scrollableRef = useRef(null);
@@ -120,6 +125,7 @@ const Product = () => {
                                     <i className="bi bi-heart"></i>
                                     Сохранить
                                 </button>
+                                <ShareButton />
                             </div>
                         </div>
                     </div>

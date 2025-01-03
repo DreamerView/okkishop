@@ -1,6 +1,6 @@
 const HeaderPreloader = () => {
     return (
-        <header className="row py-3 position-sticky top-0 header-transparent" style={{ zIndex: 1, backdropFilter: "saturate(180%) blur(5px)" }}>
+        <header className="row py-md-2 py-3 my-2 position-sticky top-0 header-transparent" style={{ zIndex: 1, backdropFilter: "saturate(180%) blur(5px)" }}>
             <div className="col-lg-2 col-sm-3 col-6 d-flex gap-4 order-1 align-items-center">
                 <button className="btn border-0 bg-body-secondary fs-4 rounded-circle" >
                     <i className="bi bi-arrow-left-short opacity-0 bg-body-secondary " />

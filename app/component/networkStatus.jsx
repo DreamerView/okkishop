@@ -5,6 +5,7 @@ const NetworkStatus = () => {
     const [isOnline, setIsOnline] = useState(navigator.onLine);
     const [wasOffline, setWasOffline] = useState(false);
     const [animation, setAnimation] = useState(false);
+    const [wifiAnimation, setWifiAnimation] = useState("bi-wifi-1 text-danger")
 
     useEffect(() => {
         const handleOnline = () => {
@@ -16,6 +17,7 @@ const NetworkStatus = () => {
 
         const handleOffline = () => {
             setAnimation(false);
+            setWifiAnimation("bi-wifi-1 text-danger")
             setIsOnline(false);
             setWasOffline(false); // Сбрасываем, чтобы сработало снова при следующем восстановлении
         };
@@ -31,15 +33,21 @@ const NetworkStatus = () => {
 
     // Скрываем уведомление "Сеть восстановлена" через 3 секунды
     useEffect(() => {
-        let timer,anim;
+        let timer,anim,wifi1,wifi2;
         if (wasOffline && isOnline) {
+
             timer = setTimeout(() => setWasOffline(false), 1500); // Уведомление исчезает через 3 секунды
             anim = setTimeout(() => setAnimation(true), 1000); // Уведомление исчезает через 3 секунды
+            wifi1 = setTimeout(() => setWifiAnimation("bi-wifi-2 text-warning"), 250);
+            wifi2 = setTimeout(() => setWifiAnimation("bi-wifi"), 500);
+
             
         }
         return () => {
             clearTimeout(timer);
             clearTimeout(anim);
+            clearTimeout(wifi1);
+            clearTimeout(wifi2);
         }
     }, [wasOffline, isOnline]);
     if(wasOffline) return (
@@ -52,7 +60,7 @@ const NetworkStatus = () => {
                     height: 250,
                 }}
             >
-                <i style={{ fontSize: 72, color:"#00FF66" }} className="bi bi-wifi pulse"></i>
+                <i style={{ fontSize: 72, color:"#00FF66" }} className={`bi ${wifiAnimation} pulse`}></i>
                 <span>Сеть восстановлена!</span>
             </div>
         </div>
