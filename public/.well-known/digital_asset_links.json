@@ -1,0 +1,12 @@
+{
+    "web_apps": [
+      {
+        "manifest": "https://okki.kz/manifest.webmanifest",
+        "details": {
+          "paths": ["/*"],
+          "exclude_paths": ["/internal/*"]
+        }
+      }
+    ]
+  }
+  

@@ -6,9 +6,20 @@ export default function manifest() {
         orientation: "portrait-primary",
         start_url: '/',
         scope: "/",
-        categories : ["shopping"],
+        categories: ["shopping"],
         display: 'standalone',
         background_color: '#ffffff',
+        url_handlers: [
+            {
+                origin: "https://okki.kz"
+            },
+            {
+                origin: "http://localhost:3000"
+            },
+            {
+                origin: "https://okkishop.vercel.app/"
+            }
+        ],
         theme_color: '#ffffff',
         "icons": [
             {
