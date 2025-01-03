@@ -9,11 +9,15 @@ const ShareButton = () => {
   }, []);
 
   const handleShare = async () => {
+    const title = document.title; // Берем title из <head>
+    const description =
+      document.querySelector('meta[name="description"]')?.content || ""; // Берем description из метатега
+
     try {
       await navigator.share({
-        title: "Поделись этим!",
-        text: "Посмотри на это крутое приложение!",
-        url: window.location.href, // текущий URL
+        title,
+        text: description,
+        url: window.location.href, // Текущий URL
       });
       console.log("Контент успешно отправлен");
     } catch (error) {
@@ -25,9 +29,12 @@ const ShareButton = () => {
   if (!isShareSupported) return null;
 
   return (
-    <button onClick={handleShare} className="btn btn-outline-secondary py-2 border-0 d-flex align-items-center gap-2">
-        <i className="bi bi-share-fill"></i>
-        Поделится
+    <button
+      onClick={handleShare}
+      className="btn btn-outline-secondary py-2 border-0 d-flex align-items-center gap-2"
+    >
+      <i className="bi bi-share-fill"></i>
+      Поделиться
     </button>
   );
 };
