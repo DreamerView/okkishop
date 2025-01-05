@@ -20,6 +20,10 @@ const NetworkStatus = dynamic(() => import("@/component/modal/networkStatus"), {
     ssr: false,
 });
 
+const CardEdit = dynamic(() => import("@/component/modal/cardEdit"), {
+    ssr: false,
+});
+
 const ClientSideRenderGlobal = () => {
     return(
         <>
@@ -29,6 +33,7 @@ const ClientSideRenderGlobal = () => {
             <ShowImageFull />
             <AuthModal />
             <BecomePartner />
+            <CardEdit />
         </>
     )
 }
