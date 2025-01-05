@@ -1,9 +1,9 @@
-import Category from "./component/category";
+// import Category from "../component/module/category";
 import dynamic from "next/dynamic";
-import CategoryTextPreloader from "./component/categoryTextPreloader";
-import Card from "./component/card";
+import CategoryTextPreloader from "../component/module/categoryTextPreloader";
+import Card from "@/component/module/card";
 
-const CategoryText = dynamic(() => import("./component/categoryText"), {
+const CategoryText = dynamic(() => import("@/component/module/categoryText"), {
   ssr: true,
   loading: () => <CategoryTextPreloader/>, // Ваш прелоадер
 });

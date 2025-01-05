@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-const ShareButton = dynamic(() => import("../buttons/share"), {
+const ShareButton = dynamic(() => import("@/component/buttons/share"), {
     ssr: false,
 });
 // import ShareButton from "../buttons/share";

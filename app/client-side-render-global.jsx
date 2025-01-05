@@ -3,20 +3,20 @@ import dynamic from "next/dynamic";
 const BecomePartner = dynamic(()=>import("@/component/modal/BecomePartner"),{
     ssr:false
 });
-const AuthModal = dynamic(()=>import("./component/authModal"),{
+const AuthModal = dynamic(()=>import("@/component/modal/authModal"),{
     ssr:false
 });
-const ShowImageFull = dynamic(()=>import("./component/showImageFull"),{
+const ShowImageFull = dynamic(()=>import("@/component/modal/showImageFull"),{
     ssr:false
 });
 const ModalPromptPwa = dynamic(()=>import("@/pwa/modalPrompt"),{
     ssr:false
 });
-const Basket = dynamic(()=>import("./component/basket"),{
+const Basket = dynamic(()=>import("@/component/modal/basket"),{
     ssr:false
 });
 
-const NetworkStatus = dynamic(() => import("./component/networkStatus"), {
+const NetworkStatus = dynamic(() => import("@/component/modal/networkStatus"), {
     ssr: false,
 });
 

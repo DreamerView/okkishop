@@ -1,13 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import "./source/animation.css";
-import "./source/media.css";
-import "./source/loader.css";
-import dynamic from "next/dynamic";
-// import Header from "./component/header";
-import Bootstrap from './source/bootstrap';
-import ClientSideRender from "./client-side-render";
-import ClientSideRenderGlobal from "./client-side-render-global";
+import "@/app/source/animation.css";
+import "@/app/source/media.css";
+import "@/app/source/loader.css";
+import ClientSideRender from "@/app/client-side-render";
+import ClientSideRenderGlobal from "@/app/client-side-render-global";
 
 export const metadata = {
   title: "Okki Shop",
