@@ -15,7 +15,7 @@
 
 @media (prefers-color-scheme: dark) {
     .header-transparent {
-        background: hsla(210, 11%, 15%,.95)
+        background: hsla(210, 11%, 15%, .95)
     }
 }
 
@@ -28,16 +28,4 @@
 .cursor-secondary:hover {
     cursor: pointer;
     background-color: var(--bs-secondary-bg) !important;
-}
-
-.hide-scrollbar {
-    scrollbar-width: none;
-    /* Для Firefox */
-    -ms-overflow-style: none;
-    /* Для IE и Edge */
-}
-
-.hide-scrollbar::-webkit-scrollbar {
-    display: none;
-    /* Для Chrome, Safari и Opera */
 }

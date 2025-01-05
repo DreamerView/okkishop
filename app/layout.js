@@ -3,6 +3,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import "@/app/source/animation.css";
 import "@/app/source/media.css";
 import "@/app/source/loader.css";
+import "@/app/source/scroll.css";
 import ClientSideRender from "@/app/client-side-render";
 import ClientSideRenderGlobal from "@/app/client-side-render-global";
 
