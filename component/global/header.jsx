@@ -81,7 +81,7 @@ const Header = () => {
                         <button className="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <Image priority src={sessionStatus['user']['image']} alt="User Image" width={32} height={32} className="rounded-circle" style={{ objectFit: "cover", aspectRatio: "1/1" }} />
                         </button>
-                        <ul className="dropdown-menu mt-2">
+                        <ul className="dropdown-menu mt-2" data-bs-theme="dark">
                             <li><a className="dropdown-item" style={{ fontSize: 14 }} href="#"><i className="bi bi-heart me-2"></i>Избранное</a></li>
                             <li><a className="dropdown-item" style={{ fontSize: 14 }} href="#"><i className="bi bi-journal-text me-2"></i>Мои заказы</a></li>
                             <li><Link className="dropdown-item" style={{ fontSize: 14 }} href="/crm"><i className="bi bi-shop-window me-2"></i>Панель управления</Link></li>
