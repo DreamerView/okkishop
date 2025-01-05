@@ -23,6 +23,7 @@ const CardEdit = () => {
                                     <div className="col-3"><div className="w-100 bg-body-secondary rounded-4 mb-2" style={{height:"auto",aspectRatio:"1/1"}}></div></div>
                                     <div className="col-3"><div className="w-100 bg-body-secondary rounded-4 mb-2" style={{height:"auto",aspectRatio:"1/1"}}></div></div>
                                     <div className="col-3"><div className="w-100 bg-body-secondary rounded-4 mb-2" style={{height:"auto",aspectRatio:"1/1"}}></div></div>
+                                    
                                 </div>
                             </div>
                             <div className="col-lg-5 col-12">

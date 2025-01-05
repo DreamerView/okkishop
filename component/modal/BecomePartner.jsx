@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 
 const BecomePartner = () => {
+    const phoneRef = useRef(null);
+    const orgNameRef = useRef(null);
+    const nameRef = useRef(null);
     const [phone, setPhone] = useState("+7 (");
 
     const formatPhone = (value) => {
@@ -30,6 +33,29 @@ const BecomePartner = () => {
         const formatted = formatPhone(input);
         setPhone(formatted);
       };
+    const handleSubmit = () => {
+      const phone = phoneRef.current.value;
+      const org = orgNameRef.current.value;
+      const name = nameRef.current.value;
+      if(phone && org && name) {
+        fetch(`${process.env.NEXT_PUBLIC_API_SERVER}/partner/submit`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ phone, org, name })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.message) {
+            alert(data.message);  // Отображаем сообщение об успехе
+          } else if (data.error) {
+            alert(data.error);  // Отображаем ошибку
+          }
+        })
+        .catch(error => console.error('Ошибка:', error));
+      }
+    }
     return (
         <div data-bs-theme="dark" className="modal fade" id="BecomePartnerModal" tabIndex="-1" aria-labelledby="BecomePartnerModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
@@ -42,6 +68,7 @@ const BecomePartner = () => {
                         <div className="mb-3">
                             <label htmlFor="phoneInput" className="form-label text-body">Введите телефоннный номер</label>
                             <input 
+                                ref={phoneRef}
                                 type="tel" 
                                 value={phone}
                                 onChange={handleChange}
@@ -53,7 +80,8 @@ const BecomePartner = () => {
                         <div className="mb-3">
                             <label htmlFor="organizationNameInput" className="form-label text-body">Введите телефоннный номер</label>
                             <input 
-                                type="tel" 
+                                type="text"
+                                ref={orgNameRef}
                                 className="form-control bg-body-secondary py-2" 
                                 id="organizationNameInput" 
                                 placeholder="Например, ИП Okki.kz" />
@@ -61,14 +89,15 @@ const BecomePartner = () => {
                         <div>
                             <label htmlFor="fullNameInput" className="form-label text-body">Ваша ФИО</label>
                             <input 
-                                type="tel" 
+                                type="text" 
+                                ref={nameRef}
                                 className="form-control bg-body-secondary py-2" 
                                 id="fullNameInput" 
                                 placeholder="Например, Алексеев Владимир Петрович" />
                         </div>
                     </div>
                     <div className="modal-footer border-0">
-                        <button type="button" className="btn w-100 btn-primary">Отправить заявку</button>
+                        <button onClick={handleSubmit} type="button" className="btn w-100 btn-primary">Отправить заявку</button>
                     </div>
                 </div>
             </div>

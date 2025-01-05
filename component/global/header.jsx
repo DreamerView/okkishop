@@ -84,6 +84,7 @@ const Header = () => {
                         <ul className="dropdown-menu mt-2">
                             <li><a className="dropdown-item" style={{ fontSize: 14 }} href="#"><i className="bi bi-heart me-2"></i>Избранное</a></li>
                             <li><a className="dropdown-item" style={{ fontSize: 14 }} href="#"><i className="bi bi-journal-text me-2"></i>Мои заказы</a></li>
+                            <li><Link className="dropdown-item" style={{ fontSize: 14 }} href="/crm"><i className="bi bi-shop-window me-2"></i>Панель управления</Link></li>
                             <li><button className="dropdown-item" style={{ fontSize: 14 }} data-bs-toggle="modal" data-bs-target="#BecomePartnerModal"><i className="bi bi-person-bounding-box me-2"></i>Стать партнером</button></li>
                             <li><button onClick={() => signOut()} style={{ fontSize: 14 }} className="dropdown-item"><i className="bi bi-box-arrow-right me-2"></i>Выйти</button></li>
                         </ul>
