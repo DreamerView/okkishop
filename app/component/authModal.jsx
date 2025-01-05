@@ -12,16 +12,17 @@ const AuthModal = () => {
     };
     return (
         <div
+            data-bs-theme="dark"
             className="modal fade"
             id="authModal"
             tabIndex="-1"
             aria-labelledby="authModalLabel"
             aria-hidden="true"
         >
-            <div className="modal-dialog modal-md modal-fullscreen-sm-down modal-dialog-centered border-0">
-                <div className="modal-content">
+            <div className="modal-dialog modal-md modal-dialog-centered border-0">
+                <div className="modal-content rounded-4 p-2">
                     <div className="modal-header border-0">
-                        <h1 className="modal-title fs-5" id="authModalLabel">
+                        <h1 className="modal-title fs-5 text-body" id="authModalLabel">
                             Войти с помощью
                         </h1>
                         <button
@@ -31,7 +32,7 @@ const AuthModal = () => {
                             aria-label="Close"
                         ></button>
                     </div>
-                    <div className="modal-body d-flex flex-column gap-3">
+                    <div className="modal-body d-flex flex-column gap-3 text-body">
                         <h4>В курсе происходящего</h4>
                         <p>Присоединяйтесь сегодня.</p>
                         <button className="btn bg-body-secondary w-100 py-2" onClick={() => clickAuth('google')}>

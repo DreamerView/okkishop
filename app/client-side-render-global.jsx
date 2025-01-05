@@ -1,6 +1,8 @@
 "use client"
 import dynamic from "next/dynamic";
-import HeaderPreloader from "./component/headerPreloader";
+const BecomePartner = dynamic(()=>import("@/component/modal/BecomePartner"),{
+    ssr:false
+});
 const AuthModal = dynamic(()=>import("./component/authModal"),{
     ssr:false
 });
@@ -26,6 +28,7 @@ const ClientSideRenderGlobal = () => {
             <ModalPromptPwa />
             <ShowImageFull />
             <AuthModal />
+            <BecomePartner />
         </>
     )
 }
